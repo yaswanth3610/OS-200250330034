@@ -1,17 +1,23 @@
+CC=gcc
+
+
 builddemo: builddemo.o add.o sub.o
-	gcc -o builddemo builddemo.c add.c sub.c
+	$(CC) -o builddemo builddemo.c add.c sub.c
 
 
 
 builddemo.o: builddemo.c
-	gcc -c -o builddemo.o builddemo.c
+	$(CC) -c -o builddemo.o builddemo.c
 
 
 
 add.o: add.c
-	gcc -c -o add.o add.c
+	$(CC) -c -o add.o add.c
 
 
 
 sub.o: sub.c
-	gcc -c -o sub.o sub.c
+	$(CC) -c -o sub.o sub.c
+
+clean:
+	rm -rf *.o builddemo
