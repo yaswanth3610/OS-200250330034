@@ -41,6 +41,8 @@
 
 * fork - create a new process
     * parent and child relationship
+    * parent and child have their own address space (text, data, bss, stack and heap)
+    * 
 
 * Pseudo parallelism
 * True parallelism
@@ -49,6 +51,97 @@
 * strace
 * Program using system call -> write a string inside a file.
 
+* Library
+    * User space
+    * May be buffered I/O
+    * Formatted I/O
+* System
+    * Kernel space
+    * Not buffered I/O
+    * No formatted I/O
+
+
+* open - O_CREAT
+* int - file descriptor -
+    * fd - represents an open file in the kernel
+    * 0 - standard input
+    * 1 - standard output
+    * 2 - standard error
+
+
+Process states:
+    * Create
+    * Ready (multiple processes)
+    * Running (one process -> uniprocessor)
+    * Waiting (multiple processes)
+    * Destroy
+
+* Scheduling algorithm -> choose the next process that has to execute
+* Context switch -> Context Saving (Current process) + Scheduling (Choose the new process) + Context Restoring (New Process)
+* Context -> PC, SP, GPR, Flags -> Hardware Registers -> Uniprocessor (1 copy)
+
+* Blocking -> Process may go into a waiting state
+* Non Blocking call -> never block -> immediately return back after doing functionality
+
+Inter process communication (IPC)
+P1 -> P2
+
+* Pipes
+    * IPC
+    * Unidirectional
+    * Related processes (Parent and Child)
+    * pipe -> two integers (file descriptors)
+    * 0 -> Reading
+    * 1 -> Writing
+    * Child will inherit file descriptors
+
+
+* FIFOs
+    * IPC
+    * Unidirectional
+    * Unrelated processes
+    * fifos aka named pipes
+    * mkfifo (command and API)
+
+
+* Write a program which does the following:
+    * P1: Get two integer inputs
+    * P1: Send it to P2
+    * P2: Recv two integers 
+    * P2: Add two integers
+    * P2: Send to P1
+    * P1: Print the result
+
+
+
+
+
+
+
+
+
+/*------------------------------*/
+Case 1:
+* Create - Webinterface - repo
+* Add address of the repo
+* git push
+* git add
+* git commit 
+* git push
+
+Case 2:
+* Existing repo - Webinterface
+* git clone GITRepoURL
+* Copy your source code to this directory
+* git add
+* git commit
+* git push
+
+Case 3:
+* git pull
+ ** git add 
+ ** git commit
+* git push
 
 
 
