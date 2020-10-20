@@ -8,7 +8,7 @@ int main()
 {
 	int fd;
 	fd= open ("desd",O_WRONLY);
-	write(fd,"cdac\n",5);
+	write(fd,"Yaswanth\n",8);
 	close(fd);
 	return 0;
 }
