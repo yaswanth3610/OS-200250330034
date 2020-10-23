@@ -11,6 +11,7 @@ int add(int a,int b)
 
 void * thread(void *arg)
 {
+
 	add(10,20);
 	count++;
 	printf("i created thread\n");
