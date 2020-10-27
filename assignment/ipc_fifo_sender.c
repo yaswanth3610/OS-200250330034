@@ -8,14 +8,15 @@
 
 int main()
 {
-	int fd,num[SIZE],rbuff[SIZE];
+	int s_fd,r_fd,num[SIZE],rbuff[SIZE];
+	mkfifo("desd",S_IRUSR | S_IWUSR);
 	printf("enter the two numbers\n");
 	scanf("%d %d",&num[0],&num[1]);
-	fd= open ("data.txt",O_RDWR);
-	write(fd,num,SIZE);
-	close(fd);
-        read(fd,rbuff,SIZE);
+	s_fd= open ("desd",O_WRONLY);
+	write(s_fd,num,SIZE);
+	r_fd=open("desd",O_RDONLY);
+        read(r_fd,rbuff,SIZE);
 	printf("recived from reciver:%d \n",rbuff[0]);
-	close(fd);
+	close(s_fd);
 	return 0;
 }
