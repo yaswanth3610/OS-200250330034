@@ -10,6 +10,7 @@ void * thread(void *arg)
 int main()
 {
 	pthread_t tid;
+	printf("Before thread creation\n");
 	pthread_create(&tid,NULL,thread,NULL);
 	sleep(1);
 	return 0;
